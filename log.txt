@@ -1,0 +1,15 @@
+1. change store name
+    store.js line 75
+
+2.1 one-off clean up action
+    add column
+        ALTER TABLE cart_item ADD obsolete int;
+
+2.2 remove some obsolete but keep some of it
+    obsolete = type=B and price > 20
+    UPDATE product SET obsolete= case when (type='B' AND price > 20) then 1 else 0 end;
+
+3. Integrate membership listing page with server data through api
+    uncomment server.js line24-32
+    membershipDao.js added line 10-17
+        
